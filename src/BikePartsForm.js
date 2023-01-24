@@ -3,7 +3,7 @@ import React, {useState} from "react";
 
 
 
-
+///this is to add parts to inventory
 
 const bikePartsUrl = "xxx"
 
@@ -12,11 +12,11 @@ function BikePartsForm () {
     const [bikeParts, setBikeParts] = useState([])
 
     const [species, setSpecies] = useState("")
-    const [part, setPart] = useState("")
+    const [component, setComponent] = useState("")
     const [make, setMake] = useState("")
     const [model, setModel] = useState("")
     const [material, setMaterial] = useState("")
-    const [metric, setMetric] = useState("") //make me a dropdown - nvm its a radio button
+    const [metric, setMetric] = useState("") 
     const [size, setSize] = useState("")
     const [weight, setWeight] = useState("")
     const [quantity, setQuantity] = useState("")
@@ -27,7 +27,7 @@ function BikePartsForm () {
 
         let newBikeParts = {
             species: species,
-            part: part,
+            component: component,
             make: make,
             model: model,
             material: material,
@@ -36,11 +36,10 @@ function BikePartsForm () {
             weight: weight, 
             quantity: quantity, 
             price: price
-
         }
 
         setSpecies("")
-        setPart("")
+        setComponent("")
         setMake("")
         setModel("")
         setMaterial("")
@@ -67,7 +66,7 @@ function BikePartsForm () {
     }
 
 
-
+//add IDs below where necessary (main div and/or form)
     return (
         <div>
             <h2>Add your parts here:</h2>
@@ -94,7 +93,27 @@ function BikePartsForm () {
                     </div>
                 </fieldset>
 
-                <input onChange={(e) => setPart(e.target.value)} type="text" name="part" placeholder="part" value={part} required />
+
+                <input onChange={(e) => setComponent(e.target.value)} list="componentDrop" type="text" name="component" placeholder="component" value={component} required />
+                <datalist id="componentDrop">
+                    <option value="frame" />
+                    <option value="fork" />
+                    <option value="handlebars" />
+                    <option value="wheels" />
+                    <option value="tires" />
+                    <option value="headset" />
+                    <option value="stem" />
+                    <option value="cranks" />
+                    <option value="pedals" />
+                    <option value="seatpost" />
+                    <option value="saddle" />
+                    <option value="brakes" />
+                    <option value="shifters" />
+                    <option value="front derailleur" />
+                    <option value="rear derailleur" />
+                    <option value="chain" />
+                </datalist>
+
 
                 <input onChange={(e) => setMake(e.target.value)} type="text" name="make" placeholder="make" value={make} required />
 
@@ -123,7 +142,7 @@ function BikePartsForm () {
                 <input onChange={(e) => setPrice(e.target.value)} type="number" step="0.01" name="price" placeholder="price (in $USD)" value={price} required min="0" />
 
 
-                <button type="submit">Submit your parts</button>
+                <button type="submit">Submit your part</button>
             </form>
         </div>
     )
