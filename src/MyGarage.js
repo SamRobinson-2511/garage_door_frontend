@@ -21,9 +21,9 @@ function MyGarage () {
 
     return (
         <nav id="myGarageNav">
-            <NavLink className="myGarageNavText" exact to="/bicycles">Bicycles</NavLink>
-            <NavLink className="myGarageNavText" exact to="/computers">Computers</NavLink>
-            <NavLink className="myGarageNavText" exact to="/automobiles">Automobiles</NavLink>
+            <NavLink className="myGarageNavText" exact to="/bicycles">Bicycles 🚵‍♂️</NavLink>
+            <NavLink className="myGarageNavText" exact to="/computers">Computers 💻</NavLink>
+            <NavLink className="myGarageNavText" exact to="/automobiles">Automobiles 🚗</NavLink>
         </nav>
     )
 };

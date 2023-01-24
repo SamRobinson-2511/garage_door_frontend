@@ -5,7 +5,7 @@ import "./NewBikeForm.css";
 
 
 ///add a new bike to your garage.
-const postBikeUrl = "XXX"
+const newBikeUrl = "XXX"
 
 
 function NewBikeForm () {
@@ -35,21 +35,42 @@ function NewBikeForm () {
     function handleSubmit(e) {
         e.preventDefault()
 
-        let newBikeParts = {
-            species: species,
-
-
+        let newBikeObj = {
+            frame: frame,
+            fork: fork,
+            handlebars: handlebars,
+            wheels: wheels,
+            tires: tires,
+            headset: headset,
+            stem: stem,
+            cranks: cranks,
+            pedals: pedals,
+            seatpost: seatpost,
+            saddle: saddle,
+            brakes: brakes,
+            shifters: shifters,
+            frontD: frontD,
+            rearD: rearD,
+            chain: chain
         }
 
-        setSpecies("")
-        setComponent("")
-        setMake("")
-        setModel("")
-        setMaterial("")
-        setMetric("")
-        setSize("")
-        setQuantity("")
-        setPrice("")
+        setFrame("")
+        setFork("")
+        setHandlebars("")
+        setWheels("")
+        setTires("")
+        setHeadset("")
+        setStem("")
+        setCranks("")
+        setPedals("")
+        setSeatpost("")
+        setSaddle("")
+        setBrakes("")
+        setShifters("")
+        setFrontD("")
+        setRearD("")
+        setChain("")
+
 
 
         let postRequest = {
@@ -58,12 +79,12 @@ function NewBikeForm () {
                 'Content-Type': 'application/json',
                 // 'Accept': 'application/json'
             },
-            body: JSON.stringify(newBikeParts),
+            body: JSON.stringify(newBikeObj),
         }
-        fetch(bikePartsUrl, postRequest)
+        fetch(newBikeUrl, postRequest)
         .then(r => r.json())
-        .then(newBikeParts => setBikeParts([...bikeParts, newBikeParts]))
-    }
+        .then(newBikeObj => setNewBike([...newBike, newBikeObj]))
+    } //if something doesn't work it is likely above lmao rofl 
 
 
 
@@ -71,7 +92,8 @@ function NewBikeForm () {
     return (
         <div>
             <h2>Add a bike to your garage here:</h2>
-            <form>
+            <h5>Please enter " nil " if you do not require a particular component!</h5>
+            <form onsubmit={handleSubmit} >
                 
                 <input onChange={(e) => setFrame(e.target.value)} type="text" name="frame" placeholder="frame" value={frame} required />
                 <input onChange={(e) => setFork(e.target.value)} type="text" name="fork" placeholder="fork" value={fork} required />
@@ -89,7 +111,7 @@ function NewBikeForm () {
                 <input onChange={(e) => setFrontD(e.target.value)} type="text" name="frontD" placeholder="front derailleur" value={frontD} required />
                 <input onChange={(e) => setRearD(e.target.value)} type="text" name="rearD" placeholder="rear derailleur" value={rearD} required />
                 <input onChange={(e) => setChain(e.target.value)} type="text" name="chain" placeholder="chain" value={chain} required />
-                <button type="submit" >Add this sweet ride to my garage</button>
+                <button type="submit" >🚲 Add this sweet ride to my garage 🚲</button>
 
             </form>
         </div>

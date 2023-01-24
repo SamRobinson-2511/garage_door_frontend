@@ -1,1 +1,19 @@
 /* new bike form  */
+/* margin = outside, padding = inside */
+
+input {
+    margin: 4px 4px;
+    padding: 10px 20px;
+    border-radius: 10px;
+    background-color: rgb(202, 234, 244);
+}
+
+input:focus {
+    background-color: rgb(221, 114, 185);
+    /* border-color: rgb(218, 0, 0);  not working*/
+}
+
+input[type=button], input[type=submit] {
+    background-color: #04AA6D;
+    cursor: pointer;
+}
