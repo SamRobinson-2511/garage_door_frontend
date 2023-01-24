@@ -5,8 +5,8 @@ import { useEffect, useState } from 'react'
 import FormData from './LoginForm'
 import MyGarage from './MyGarage';
 import Bicycles from './Bicycles';
-import BikePartsForm from './BikePartsForm';
-import NewBikeForm from './NewBikeForm';
+// import BikePartsForm from './BikePartsForm';
+// import NewBikeForm from './NewBikeForm';
 
 
 function App() {
@@ -20,10 +20,10 @@ function App() {
       </Switch>
 
 
-      <BikePartsForm />
+      
       <br/>
       <br/>
-      <NewBikeForm />
+      
     </div>
   );
 }

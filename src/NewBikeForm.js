@@ -90,10 +90,10 @@ function NewBikeForm () {
 
 
     return (
-        <div>
+        <div className="formDiv" >
             <h2>Add a bike to your garage here:</h2>
             <h5>Please enter " nil " if you do not require a particular component!</h5>
-            <form onsubmit={handleSubmit} >
+            <form onsubmit={handleSubmit}  >
                 
                 <input onChange={(e) => setFrame(e.target.value)} type="text" name="frame" placeholder="frame" value={frame} required />
                 <input onChange={(e) => setFork(e.target.value)} type="text" name="fork" placeholder="fork" value={fork} required />
@@ -111,7 +111,7 @@ function NewBikeForm () {
                 <input onChange={(e) => setFrontD(e.target.value)} type="text" name="frontD" placeholder="front derailleur" value={frontD} required />
                 <input onChange={(e) => setRearD(e.target.value)} type="text" name="rearD" placeholder="rear derailleur" value={rearD} required />
                 <input onChange={(e) => setChain(e.target.value)} type="text" name="chain" placeholder="chain" value={chain} required />
-                <button type="submit" >🚲 Add this sweet ride to my garage 🚲</button>
+                <button type="submit" className="submitButton" >🚲 Add this sweet ride to my garage 🚲</button>
 
             </form>
         </div>

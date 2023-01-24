@@ -12,13 +12,6 @@ function MyGarage () {
 
 
 
-
-
-
-
-
-
-
     return (
         <nav id="myGarageNav">
             <NavLink className="myGarageNavText" exact to="/bicycles">Bicycles 🚵‍♂️</NavLink>
