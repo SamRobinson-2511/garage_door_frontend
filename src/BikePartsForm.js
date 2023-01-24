@@ -9,29 +9,69 @@ const bikePartsUrl = "xxx"
 
 function BikePartsForm () {
 
+    const [bikeParts, setBikeParts] = useState([])
+
     const [species, setSpecies] = useState("")
-    const [component, setComponent] = useState("")
+    const [part, setPart] = useState("")
     const [make, setMake] = useState("")
     const [model, setModel] = useState("")
     const [material, setMaterial] = useState("")
-    const [metric, setMetric] = useState("") //make me a dropdown
+    const [metric, setMetric] = useState("") //make me a dropdown - nvm its a radio button
     const [size, setSize] = useState("")
     const [weight, setWeight] = useState("")
     const [quantity, setQuantity] = useState("")
     const [price, setPrice] = useState("")
 
+    function handleSubmit(e) {
+        e.preventDefault()
+
+        let newBikeParts = {
+            species: species,
+            part: part,
+            make: make,
+            model: model,
+            material: material,
+            metric: metric,
+            size: size,
+            weight: weight, 
+            quantity: quantity, 
+            price: price
+
+        }
+
+        setSpecies("")
+        setPart("")
+        setMake("")
+        setModel("")
+        setMaterial("")
+        setMetric("")
+        setSize("")
+        setQuantity("")
+        setPrice("")
 
 
 
+    
 
-//road, track, mountain, gravel
+        let postRequest = {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json',
+                // 'Accept': 'application/json'
+            },
+            body: JSON.stringify(newBikeParts),
+        }
+        fetch(bikePartsUrl, postRequest)
+        .then(r => r.json())
+        .then(newBikeParts => setBikeParts([...bikeParts, newBikeParts]))
+    }
 
-//cost?
+
 
     return (
         <div>
             <h2>Add your parts here:</h2>
-            <form  >
+            <form onSubmit={handleSubmit} >
 
                 <fieldset id="fieldsetSpecies" value={species}>
                     <legend>Select your species:</legend>
@@ -54,7 +94,7 @@ function BikePartsForm () {
                     </div>
                 </fieldset>
 
-                <input onChange={(e) => setComponent(e.target.value)} type="text" name="component" placeholder="component" value={component} required />
+                <input onChange={(e) => setPart(e.target.value)} type="text" name="part" placeholder="part" value={part} required />
 
                 <input onChange={(e) => setMake(e.target.value)} type="text" name="make" placeholder="make" value={make} required />
 
@@ -74,13 +114,13 @@ function BikePartsForm () {
                 </fieldset>
 
 
-                <input onChange={(e) => setSize(e.target.value)} type="number" step="0.01" name="size" placeholder="size" value={size} required />
+                <input onChange={(e) => setSize(e.target.value)} type="number" step="0.01" name="size" placeholder="size" value={size} required min="0" />
 
-                <input onChange={(e) => setWeight(e.target.value)} type="number" step="0.01" name="weight" placeholder="weight (in ounces)" value={weight} required />
+                <input onChange={(e) => setWeight(e.target.value)} type="number" step="0.01" name="weight" placeholder="weight (in ounces)" value={weight} required min="0" />
 
-                <input onChange={(e) => setQuantity(e.target.value)} type="number" step="1" name="quantity" placeholder="quantity" value={quantity} required />
+                <input onChange={(e) => setQuantity(e.target.value)} type="number" step="1" name="quantity" placeholder="quantity" value={quantity} required min="0" />
 
-                <input onChange={(e) => setPrice(e.target.value)} type="number" step="0.01" name="price" placeholder="price (in $USD)" value={price} required />
+                <input onChange={(e) => setPrice(e.target.value)} type="number" step="0.01" name="price" placeholder="price (in $USD)" value={price} required min="0" />
 
 
                 <button type="submit">Submit your parts</button>
