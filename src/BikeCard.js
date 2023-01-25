@@ -15,19 +15,29 @@ function BikeCard () {
 
 
 
-//ul
+
 
 
     return (
-        <div>bike card
-            <li className="bikeCard" >
-                <h2>Name</h2>
-                <h3>Species</h3>
-                <img src={""} >bike.image</img>
-                <h5>rest of parts in other h5 tags</h5>
-            </li>
+        
+        <div> hello
+            <div>bike card
+                <li className="bikeCard" >
+                    <h2>Name</h2>
+                    <h3>Species</h3>
+                    <img src={""} alt="" >bike.image</img>
+                    <h5>rest of parts in other h5 tags</h5>
+                </li>
+            </div>
+
+            <form>
+                Maintenance Log
+                <label for="dateLog">Date of log:</label>
+                <input type="date" id="dateLog" name="dateLog" value={""} />
+
+            </form>
         </div>
     )
 };
 
-export default BikeCard
+export default BikeCard;

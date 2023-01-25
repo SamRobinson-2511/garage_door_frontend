@@ -141,7 +141,7 @@ function BikePartsForm () {
 
                 <input onChange={(e) => setPrice(e.target.value)} type="number" step="0.01" name="price" placeholder="price (in $USD)" value={price} required min="0" />
 
-                <h5>test</h5> <h1>test</h1>
+                
                 <button type="submit" className="submitButton">Submit your part</button>
             </form>
         </div>
