@@ -1,29 +1,32 @@
 import React, {useState} from 'react'
 import {useHistory} from 'react-router-dom'
 // import { Form } from '../styled/Form'
-import "./LoginForm.css";
+// import "./LoginForm.css";
 
-function LoginForm() {
-    const [formData, setFormData] = useState({
-        name:'',
+function LoginForm() { 
+
+    //if something gets screwy here, it is either user_name or name!!!
+
+    const [formData, setFormData] = useState({  
+        user_name:'',
         password:''
     })
     const [errors, setErrors] = useState([])
     const history = useHistory()
 
-    const {name, password} = formData
+    const {user_name, password} = formData
 
     function onSubmit(e){
         e.preventDefault()
         const user = {
-            name,
+            user_name,
             password
         }
-       
+
         fetch(`/login`,{
-          method:'POST',
-          headers:{'Content-Type': 'application/json'},
-          body:JSON.stringify(user)
+            method:'POST',
+            headers:{'Content-Type': 'application/json'},
+            body:JSON.stringify(user)
         })
         .then(res => {
             if(res.ok){
@@ -34,30 +37,31 @@ function LoginForm() {
                 res.json().then(json => setErrors(json.errors))
             }
         })
-       
+
     }
 
     const handleChange = (e) => {
         const { name, value } = e.target
         setFormData({ ...formData, [name]: value })
-      }
+    }
     return (
         <> 
         <LoginForm onSubmit={onSubmit}>
-        <label>
-          Username
-          </label>
-        <input type='text' name='name' value={name} onChange={handleChange} />
-      
-        <label>
-         Password
-         </label>
-        <input type='text' name='password' value={password} onChange={handleChange} />
-       
-       
-        <input type='submit' value='Log in!' />
-      </LoginForm>
-      {errors&&<div>{errors}</div>}
+            <label>
+            Username
+            </label>
+            <input type='text' name='name' value={name} onChange={handleChange} />
+        
+            <label>
+            Password
+            </label>
+            <input type='text' name='password' value={password} onChange={handleChange} />
+
+        
+            <input type='submit' value='Log in!' />
+        </LoginForm>
+        
+        {errors&&<div>{errors}</div>}
         </>
     )
 }
