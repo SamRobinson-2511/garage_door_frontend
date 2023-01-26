@@ -5,7 +5,7 @@ import React, {useState} from "react";
 
 ///this is to add parts to inventory
 
-const bikePartsUrl = "xxx"
+const bikePartsUrl = "http://localhost:3000/parts"
 
 function BikePartsForm () {
 
@@ -19,7 +19,7 @@ function BikePartsForm () {
     const [metric, setMetric] = useState("") 
     const [size, setSize] = useState("")
     const [weight, setWeight] = useState("")
-    const [quantity, setQuantity] = useState("")
+    // const [quantity, setQuantity] = useState("")
     const [price, setPrice] = useState("")
 
     function handleSubmit(e) {
@@ -34,7 +34,7 @@ function BikePartsForm () {
             metric: metric,
             size: size,
             weight: weight, 
-            quantity: quantity, 
+            // quantity: quantity, 
             price: price
         }
 
@@ -45,7 +45,7 @@ function BikePartsForm () {
         setMaterial("")
         setMetric("")
         setSize("")
-        setQuantity("")
+        // setQuantity("")
         setPrice("")
 
 
@@ -137,7 +137,7 @@ function BikePartsForm () {
 
                 <input onChange={(e) => setWeight(e.target.value)} type="number" step="0.01" name="weight" placeholder="weight (in ounces)" value={weight} required min="0" />
 
-                <input onChange={(e) => setQuantity(e.target.value)} type="number" step="1" name="quantity" placeholder="quantity" value={quantity} required min="0" />
+                {/* <input onChange={(e) => setQuantity(e.target.value)} type="number" step="1" name="quantity" placeholder="quantity" value={quantity} required min="0" /> */}
 
                 <input onChange={(e) => setPrice(e.target.value)} type="number" step="0.01" name="price" placeholder="price (in $USD)" value={price} required min="0" />
 

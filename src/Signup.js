@@ -74,7 +74,7 @@ function SignUp() {
     <Form>
         <Form.Group className="mb-3" controlId="formBasicEmail">
             <Form.Label>First name:</Form.Label>
-            <Form.Control type="text" placeholder="Enter first name" />
+            <Form.Control type="text" placeholder="Enter your first name" />
             <Form.Text className="text-muted">
                 This is signup.
             </Form.Text>
@@ -82,12 +82,12 @@ function SignUp() {
 
         <Form.Group className="mb-3" controlId="formBasicPassword">
             <Form.Label>Last name:</Form.Label>
-            <Form.Control type="text" placeholder="Enter last name"  />
+            <Form.Control type="text" placeholder="Enter your last name"  />
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="formBasicPassword">
             <Form.Label>Email:</Form.Label>
-            <Form.Control type="email" placeholder="Enter email address" />
+            <Form.Control type="email" placeholder="Enter your email address" />
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="formBasicPassword">
@@ -97,7 +97,7 @@ function SignUp() {
 
         <Form.Group className="mb-3" controlId="formBasicPassword">
             <Form.Label>Password:</Form.Label>
-            <Form.Control type="password" placeholder="Password" />
+            <Form.Control type="password" placeholder="Choose a password" />
         </Form.Group>
 
 
