@@ -24,7 +24,7 @@ function UserPage(){
             }else {
                 res.json().then(data => 
                     {
-                    // console.log(data.error)  also may come in handy
+                    // console.log(data)  also may come in handy (arguerror: before process_action callback:auth_user not defined)
                     setErrors(data.error)
                 })
             }
