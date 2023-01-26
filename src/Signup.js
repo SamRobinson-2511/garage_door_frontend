@@ -3,8 +3,17 @@ import {useHistory} from 'react-router-dom'
 
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import Modal from 'react-bootstrap/Modal';
 
 function SignUp() {
+
+
+    const [show, setShow] = useState(false);   //bootstrap
+
+    const handleClose = () => setShow(false);   //bootstrap
+    const handleShow = () => setShow(true);   //bootstrap  
+
+    /////////////////
 
     const [formData, setFormData] = useState({
         first_name: "",
@@ -51,35 +60,16 @@ function SignUp() {
     }
     return (
         <> 
-        {/* <form onSubmit={onSubmit}>
 
-            <label>
-            First name
-            </label>
-            <input type='text' name='first_name' value={first_name} onChange={handleChange} />
 
-            <label>
-            Last name
-            </label>
-            <input type='text' name='last_name' value={last_name} onChange={handleChange} />
+        
+    <Button variant="primary" onClick={handleShow}>Signup</Button>
 
-            <label>
-            Username
-            </label>  
-            <input type='text' name='user_name' value={user_name} onChange={handleChange} />
-
-            <label>
-            Email
-            </label>
-            <input type='text' name='email' value={email} onChange={handleChange} />
-
-            <label>
-            Password
-            </label>
-            <input type='password' name='password' value={password} onChange={handleChange} />
-
-            <input type='submit' value='Sign up!' />
-        </form> */}
+    <Modal show={show} onHide={handleClose}>
+    <Modal.Header closeButton>
+        <Modal.Title>Please fill out all fields below</Modal.Title>
+    </Modal.Header>
+    <Modal.Body>XXXXX
 
     <Form>
         <Form.Group className="mb-3" controlId="formBasicEmail">
@@ -92,7 +82,7 @@ function SignUp() {
 
         <Form.Group className="mb-3" controlId="formBasicPassword">
             <Form.Label>Last name:</Form.Label>
-            <Form.Control type="text" placeholder="Enter last name" />
+            <Form.Control type="text" placeholder="Enter last name"  />
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="formBasicPassword">
@@ -118,9 +108,20 @@ function SignUp() {
 
 
 
+    </Modal.Body>
+        <Modal.Footer>
+            <Button variant="secondary" onClick={handleClose}>Close</Button>
+            <Button variant="primary" onClick={handleClose}>Save Changes</Button>
+        </Modal.Footer>
+    </Modal>
+
+
+
         {errors?errors.map(e => <div>{e[0]+': ' + e[1]}</div>):null}
         </>
     )
 }
 
 export default SignUp
+
+// value={password} onChange={handleChange} 

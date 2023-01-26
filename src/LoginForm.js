@@ -14,8 +14,11 @@ function LoginForm() {
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
-
+    //above is from botstrap
     //if something gets screwy here, it is either user_name or name!!!
+    //below from Ix
+
+    // still need to build post and onsubmit
 
     const [formData, setFormData] = useState({  
         user_name:'',
@@ -64,16 +67,13 @@ function LoginForm() {
         <Modal.Header closeButton>
             <Modal.Title>Enter your login info.</Modal.Title>
         </Modal.Header>
-        <Modal.Body>Is your garage messy or clean?
+        <Modal.Body>Safe and secure with BCrypt.
         
         <Form>
             <Form.Group className="mb-3" controlId="formBasicEmail">
             <br/>
                 <Form.Label>Username:</Form.Label>
                 <Form.Control type="email" placeholder="Enter email" />
-                <Form.Text className="text-muted">
-                    Safe and secure with BCrypt.
-                </Form.Text>
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="formBasicPassword">
