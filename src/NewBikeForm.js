@@ -1,7 +1,6 @@
 import React, {useState} from "react";
+
 // import "./NewBikeForm.css";
-
-
 
 
 ///add a new bike to your garage.
@@ -31,6 +30,7 @@ function NewBikeForm () {
     const [rearD, setRearD] = useState("")
     const [chain, setChain] = useState("")
     const [name, setName] = useState("")
+    const [image, setImage] = useState("")
 
     function handleSubmit(e) {
         e.preventDefault()
@@ -52,7 +52,8 @@ function NewBikeForm () {
             frontD: frontD,
             rearD: rearD,
             chain: chain,
-            name: name
+            name: name,
+            image: image
         }
 
         setFrame("")
@@ -72,31 +73,28 @@ function NewBikeForm () {
         setRearD("")
         setChain("")
         setName("")
-
-
-
+        setImage("")
 
         let postRequest = {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json',
-                // 'Accept': 'application/json'
+                // "Content-Type": "multipart/form-data"
             },
             body: JSON.stringify(newBikeObj),
         }
         fetch(newBikeUrl, postRequest)
         .then(r => r.json())
         .then(newBikeObj => setNewBike([...newBike, newBikeObj]))
-    } //if something doesn't work it is likely above lmao rofl 
-
-
-
+    } 
 
     return (
         <div className="formDiv" >
             <h2>Add a bike to your garage here:</h2>
             <h5>Please leave blank any component which is not included on your bike!</h5>
             <form onSubmit={handleSubmit}  >
+
+                <input onChange={(e) => setName(e.target.value)} type="text" name="name"    placeholder="the name of your beast" value={name}  />
                 
                 <input onChange={(e) => setFrame(e.target.value)} type="text" name="frame" placeholder="frame" value={frame}  />
 
@@ -130,7 +128,7 @@ function NewBikeForm () {
 
                 <input onChange={(e) => setChain(e.target.value)} type="text" name="chain" placeholder="chain" value={chain}  />
 
-                <input onChange={(e) => setName(e.target.value)} type="text" name="name" placeholder="the name of your beast" value={name}  />
+                <input onChange={(e) => setImage(e.target.value)} type="text" name="image" placeholder="image URL" value={image}  />
 
                 <button type="submit" className="submitButton" >
                     🚲 Add this sweet ride to my garage 🚲
@@ -141,4 +139,4 @@ function NewBikeForm () {
     )
 };
 
-export default NewBikeForm
+export default NewBikeForm;
