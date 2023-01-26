@@ -4,7 +4,7 @@ import "./Bicycles.css";
 import BikePartsForm from './BikePartsForm';
 import NewBikeForm from './NewBikeForm';
 
-import BikeCard from "./BikeCard";
+// import BikeCard from "./BikeCard";
 
 //need to fetch complete bicycles and map over to display all complete bicycles
 
