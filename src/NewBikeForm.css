@@ -1,0 +1,44 @@
+/* new bike form  */
+/* margin = outside, padding = inside */
+/* this css also applies to BikePartsForm */
+
+input {
+    margin: 4px 4px;
+    padding: 10px 20px;
+    border-radius: 10px;
+    background-color: rgb(202, 234, 244);
+}
+
+input:focus {
+    background-color: rgb(221, 114, 185);
+    /* border-color: rgb(218, 0, 0);  not working*/
+}
+
+
+.submitButton {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 10px;
+
+    
+}
+
+.submitButton:hover {
+    /* transition-duration: 0.4s;
+    color: white;  not working*/
+    box-shadow: 0 5px 5px 0 rgba(0,0,0,0.24), 0 5px 5px 0 rgba(0,0,0,0.19);
+
+}
+
+/* .formDiv {
+    border: 10px;
+
+    would be nice to have box around form inputs
+} */
+
