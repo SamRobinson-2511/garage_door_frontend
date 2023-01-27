@@ -15,11 +15,6 @@ function BikeCard ({bikes}) {
 //"bike" will be passed down as prop from Bicycles
 
 
-
-
-
-
-
     return (
         
         <div>

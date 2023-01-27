@@ -30,7 +30,7 @@ function NewBikeForm () {
     const [rearD, setRearD] = useState("")
     const [chain, setChain] = useState("")
     const [name, setName] = useState("")
-    const [image, setImage] = useState("")
+    const [image_url, setImageURL] = useState("")
 
     function handleSubmit(e) {
         e.preventDefault()
@@ -53,7 +53,7 @@ function NewBikeForm () {
             rearD: rearD,
             chain: chain,
             name: name,
-            image: image
+            image_url: image_url
         }
 
         setFrame("")
@@ -73,7 +73,7 @@ function NewBikeForm () {
         setRearD("")
         setChain("")
         setName("")
-        setImage("")
+        setImageURL("")
 
         let postRequest = {
             method: "POST",
@@ -128,7 +128,7 @@ function NewBikeForm () {
 
                 <input onChange={(e) => setChain(e.target.value)} type="text" name="chain" placeholder="chain" value={chain}  />
 
-                <input onChange={(e) => setImage(e.target.value)} type="text" name="image" placeholder="image URL" value={image}  />
+                <input onChange={(e) => setImageURL(e.target.value)} type="text" name="image_url" placeholder="image URL" value={image_url}  />
 
                 <button type="submit" className="submitButton" >
                     🚲 Add this sweet ride to my garage 🚲
