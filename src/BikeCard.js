@@ -1,5 +1,7 @@
 import React from "react";
-import "./BikeCard.css"
+// import "./BikeCard.css"
+import Button from 'react-bootstrap/Button';
+import Card from 'react-bootstrap/Card';
 
 
 
@@ -8,7 +10,7 @@ import "./BikeCard.css"
 
 
 
-function BikeCard () {
+function BikeCard ({bikes}) {
 
 //"bike" will be passed down as prop from Bicycles
 
@@ -20,23 +22,21 @@ function BikeCard () {
 
     return (
         
-        <div> hello
-            <div>bike card
-                <li className="bikeCard" >
-                    <h2>Name</h2>
-                    <h3>Species</h3>
-                    <img src={""} alt="" >bike.image</img>
-                    <h5>rest of parts in other h5 tags</h5>
-                </li>
-            </div>
-
-            <form>
-                Maintenance Log
-                <label for="dateLog">Date of log:</label>
-                <input type="date" id="dateLog" name="dateLog" value={""} />
-
-            </form>
+        <div>
+            {bikes.map(bike => 
+                    <Card style={{ width: '18rem' }}>
+                        <Card.Img variant="top" src={bike.image_url} />
+                        <Card.Body>
+                            <Card.Title>{bike.name}</Card.Title>
+                            <Card.Text>
+                                Lets click on view full to open a new modal that lists all components - use a modal with list
+                            </Card.Text>
+                            <Button variant="primary">View full components</Button>
+                        </Card.Body>
+                    </Card>
+                )}
         </div>
+
     )
 };
 

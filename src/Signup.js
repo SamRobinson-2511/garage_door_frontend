@@ -1,8 +1,19 @@
 import React, {useState} from 'react'
 import {useHistory} from 'react-router-dom'
-// import {Form} from '../styled/Form'
+
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
+import Modal from 'react-bootstrap/Modal';
 
 function SignUp() {
+
+
+    const [show, setShow] = useState(false);   //bootstrap
+
+    const handleClose = () => setShow(false);   //bootstrap
+    const handleShow = () => setShow(true);   //bootstrap  
+
+    /////////////////
 
     const [formData, setFormData] = useState({
         first_name: "",
@@ -49,35 +60,62 @@ function SignUp() {
     }
     return (
         <> 
-        <Form onSubmit={onSubmit}>
 
-            <label>
-            First name
-            </label>
-            <input type='text' name='first_name' value={first_name} onChange={handleChange} />
 
-            <label>
-            Last name
-            </label>
-            <input type='text' name='last_name' value={last_name} onChange={handleChange} />
+        
+    <Button variant="primary" onClick={handleShow}>Signup</Button>
 
-            <label>
-            Username
-            </label>  
-            <input type='text' name='user_name' value={user_name} onChange={handleChange} />
+    <Modal show={show} onHide={handleClose}>
+    <Modal.Header closeButton>
+        <Modal.Title>Please fill out all fields below</Modal.Title>
+    </Modal.Header>
+    <Modal.Body>XXXXX
 
-            <label>
-            Email
-            </label>
-            <input type='text' name='email' value={email} onChange={handleChange} />
+    <Form>
+        <Form.Group className="mb-3" controlId="formBasicEmail">
+            <Form.Label>First name:</Form.Label>
+            <Form.Control type="text" placeholder="Enter your first name" />
+            <Form.Text className="text-muted">
+                This is signup.
+            </Form.Text>
+        </Form.Group>
 
-            <label>
-            Password
-            </label>
-            <input type='password' name='password' value={password} onChange={handleChange} />
+        <Form.Group className="mb-3" controlId="formBasicPassword">
+            <Form.Label>Last name:</Form.Label>
+            <Form.Control type="text" placeholder="Enter your last name"  />
+        </Form.Group>
 
-            <input type='submit' value='Sign up!' />
-        </Form>
+        <Form.Group className="mb-3" controlId="formBasicPassword">
+            <Form.Label>Email:</Form.Label>
+            <Form.Control type="email" placeholder="Enter your email address" />
+        </Form.Group>
+
+        <Form.Group className="mb-3" controlId="formBasicPassword">
+            <Form.Label>Username:</Form.Label>
+            <Form.Control type="text" placeholder="Choose a username" />
+        </Form.Group>
+
+        <Form.Group className="mb-3" controlId="formBasicPassword">
+            <Form.Label>Password:</Form.Label>
+            <Form.Control type="password" placeholder="Choose a password" />
+        </Form.Group>
+
+
+        <Button variant="primary" type="submit">
+            Submit
+        </Button>
+    </Form>
+
+
+
+    </Modal.Body>
+        <Modal.Footer>
+            <Button variant="secondary" onClick={handleClose}>Close</Button>
+            <Button variant="primary" onClick={handleClose}>Save Changes</Button>
+        </Modal.Footer>
+    </Modal>
+
+
 
         {errors?errors.map(e => <div>{e[0]+': ' + e[1]}</div>):null}
         </>
@@ -85,3 +123,5 @@ function SignUp() {
 }
 
 export default SignUp
+
+// value={password} onChange={handleChange} 

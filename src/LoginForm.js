@@ -4,12 +4,21 @@ import {useHistory} from 'react-router-dom'
 // import "./LoginForm.css";
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import Modal from 'react-bootstrap/Modal';
 
 
 
 function LoginForm() { 
 
+    const [show, setShow] = useState(false);
+
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
+    //above is from botstrap
     //if something gets screwy here, it is either user_name or name!!!
+    //below from Ix
+
+    // still need to build post and onsubmit
 
     const [formData, setFormData] = useState({  
         user_name:'',
@@ -50,47 +59,37 @@ function LoginForm() {
     }
     return (
         <> 
-        {/* <LoginForm onSubmit={onSubmit}>
-            <label>
-            Username
-            </label>
-            <input type='text' name='name' value={name} onChange={handleChange} />
+
+
+    <Button variant="primary" onClick={handleShow}>Login</Button>
+
+    <Modal show={show} onHide={handleClose}>
+        <Modal.Header closeButton>
+            <Modal.Title>Enter your login info.</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>Safe and secure with BCrypt.
         
-            <label>
-            Password
-            </label>
-            <input type='text' name='password' value={password} onChange={handleChange} />
+        <Form>
+            <Form.Group className="mb-3" controlId="formBasicEmail">
+            <br/>
+                <Form.Label>Username:</Form.Label>
+                <Form.Control type="email" placeholder="Enter email" />
+            </Form.Group>
 
-        
-            <input type='submit' value='Log in!' />
-        </LoginForm>
-         */}
+            <Form.Group className="mb-3" controlId="formBasicPassword">
+                <Form.Label>Password:</Form.Label>
+                <Form.Control type="password" placeholder="Password" />
+            </Form.Group>
 
+            <Button variant="primary" type="submit">Submit</Button>
+        </Form>
 
-    <Form>
-        <Form.Group className="mb-3" controlId="formBasicEmail">
-            <Form.Label>Email address</Form.Label>
-            <Form.Control type="email" placeholder="Enter email" />
-            <Form.Text className="text-muted">
-                We'll never share your email with anyone else.
-            </Form.Text>
-        </Form.Group>
-
-        <Form.Group className="mb-3" controlId="formBasicPassword">
-            <Form.Label>Password</Form.Label>
-            <Form.Control type="password" placeholder="Password" />
-        </Form.Group>
-
-        <Form.Group className="mb-3" controlId="formBasicCheckbox">
-            <Form.Check type="checkbox" label="Check me out" />
-        </Form.Group>
-
-        <Button variant="primary" type="submit">
-            Submit
-        </Button>
-    </Form>
-
-
+        </Modal.Body>
+        <Modal.Footer>
+            <Button variant="secondary" onClick={handleClose}>Close</Button>
+            <Button variant="primary" onClick={handleClose}>Save Changes</Button>
+        </Modal.Footer>
+    </Modal>
 
 
         {errors&&<div>{errors}</div>}
