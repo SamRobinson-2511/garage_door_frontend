@@ -25,31 +25,22 @@ function Bicycles () {
     }, [])
 
     function handleDelete(x){
-        fetch(`${bikesUrl}${x.id}`, 
-        {
-            method: 'DELETE'
-        })
-    
+        fetch(`${bikesUrl}${x.id}`, {method: 'DELETE'})
         const updatedArray = bikeData.filter((bike) => bike.id !== x.id)
             setBikeData(updatedArray)
     }
-
        
-
     return (
 
         <div>
             
-            
-
             <ul></ul>
 
             <div>
                 <BikePartsForm />
                 <NewBikeForm />
                 <BikeCard bikes={bikeData} handleDelete={handleDelete} />
-            </div>
-                
+            </div>         
         </div>
     )
 };

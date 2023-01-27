@@ -11,7 +11,6 @@ import Modal from 'react-bootstrap/Modal';
 function LoginForm() { 
 
     const [show, setShow] = useState(false);
-
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
     //above is from botstrap
@@ -46,7 +45,7 @@ function LoginForm() {
                 res.json().then(user => {
                     history.push(`/users/${user.id}`)
                 })
-            }else {
+            } else {
                 res.json().then(json => setErrors(json.errors))
             }
         })
