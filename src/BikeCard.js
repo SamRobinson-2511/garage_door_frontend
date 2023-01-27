@@ -10,7 +10,7 @@ import Card from 'react-bootstrap/Card';
 
 
 
-function BikeCard ({bikes}) {
+function BikeCard ({bikes, handleDelete}) {
 
 //"bike" will be passed down as prop from Bicycles
 
@@ -27,6 +27,9 @@ function BikeCard ({bikes}) {
                                 Lets click on view full to open a new modal that lists all components - use a modal with list
                             </Card.Text>
                             <Button variant="primary">View full components</Button>
+                            <br/>
+                            <br/>
+                            <Button variant="primary" onClick={()=>handleDelete(bike)}>Remove from Garage</Button>
                         </Card.Body>
                     </Card>
                 )}
