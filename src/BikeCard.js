@@ -2,6 +2,7 @@ import React from "react";
 // import "./BikeCard.css"
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
+import EditBikeForm from "./EditBikeForm";
 
 
 
@@ -10,10 +11,15 @@ import Card from 'react-bootstrap/Card';
 
 
 
-function BikeCard ({bikes, handleDelete}) {
+function BikeCard ({bikes, handleDelete, handleShow}) {
 
 //"bike" will be passed down as prop from Bicycles
 
+    //on that click => <EditBikeForm
+
+    // const singularBike = bikes.map((bike) => bike.id)
+    // console.log(singularBike)
+    
 
     return (
         
@@ -29,13 +35,24 @@ function BikeCard ({bikes, handleDelete}) {
                             <Button variant="primary">View full components</Button>
                             <br/>
                             <br/>
+                            <Button variant="primary" 
+                                onClick={handleShow}>
+                                    Update Bike
+                                </Button>
+                            <br/>
+                            <br/>
                             <Button variant="primary" onClick={()=>handleDelete(bike)}>Remove from Garage</Button>
                         </Card.Body>
                     </Card>
                 )}
+                {/* <EditBikeForm bikes={bikes} handleShow={handleShow} /> */}
+                
         </div>
+        
 
     )
 };
 
 export default BikeCard;
+
+{/* <Button variant="primary" onClick={handleShow}>Login</Button> */}

@@ -7,19 +7,6 @@ import Signup from "./Signup";
 
 function LandingPage () {
 
-
-
-
-
-
-
-
-
-
-
-
-
-
     return (
         <div>
             landing page test
